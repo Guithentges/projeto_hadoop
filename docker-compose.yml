@@ -1,0 +1,26 @@
+# Cluster Hadoop: 1 NameNode, 3 DataNodes, 1 ResourceManager, 1 NodeManager
+# Subir:  docker compose up -d --scale datanode=3
+services:
+  namenode:
+    image: apache/hadoop:3.3.6
+    hostname: namenode
+    command: ["hdfs", "namenode"]
+    ports: ["9870:9870"]            # UI do HDFS
+    env_file: ./config
+    environment:
+      ENSURE_NAMENODE_DIR: "/tmp/hadoop-root/dfs/name"
+    volumes: ["./:/job"]            # scripts e dados visíveis em /job
+  datanode:
+    image: apache/hadoop:3.3.6
+    command: ["hdfs", "datanode"]
+    env_file: ./config
+  resourcemanager:
+    image: apache/hadoop:3.3.6
+    hostname: resourcemanager
+    command: ["yarn", "resourcemanager"]
+    ports: ["8088:8088"]            # UI do YARN
+    env_file: ./config
+  nodemanager:
+    image: apache/hadoop:3.3.6
+    command: ["yarn", "nodemanager"]
+    env_file: ./config

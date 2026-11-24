@@ -1,11 +1,13 @@
-#!/usr/bin/env python3
-"""JOB 2 - COMBINER e REDUCER (mesmo script): mantém só os TOP N.
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+"""JOB 2 - COMBINER e REDUCER (mesmo script; Python 2.7 e 3): só os TOP N.
 Entrada/Saída: top <TAB> n <TAB> bytes <TAB> url
 
 Combiner: cada mapper manda só seus 10 melhores (não todas as URLs).
 Reducer : entre os candidatos de todos os mappers, fica com os 10 globais.
 Correto porque quem está no top 10 global está no top 10 local de algum mapper.
 """
+from __future__ import print_function
 import heapq
 import sys
 
@@ -19,4 +21,4 @@ for line in sys.stdin:
         candidatos = heapq.nlargest(N, candidatos)
 
 for n, b, url in heapq.nlargest(N, candidatos):
-    print(f"top\t{n}\t{b}\t{url}")
+    print("top\t%d\t%d\t%s" % (n, b, url))

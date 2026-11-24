@@ -24,11 +24,10 @@ until docker compose exec -T namenode hdfs dfsadmin -report 2>/dev/null | grep -
 docker compose exec -T namenode hdfs dfsadmin -safemode wait
 until docker compose exec -T resourcemanager yarn node -list 2>/dev/null | grep -q "Total Nodes:1"; do sleep 3; done
 
-echo ">> [4/5] Garantindo Python no NodeManager (onde rodam mappers/reducers)..."
-if ! docker compose exec -T -u root nodemanager python3 --version >/dev/null 2>&1; then
-  docker compose exec -T -u root nodemanager sh -c \
-    "yum install -y python3 || dnf install -y python3 || microdnf install -y python3"
-fi
+echo ">> [4/5] Verificando Python no NodeManager (onde rodam mappers/reducers)..."
+if docker compose exec -T nodemanager python3 --version >/dev/null 2>&1; then echo "   python3 ok"
+elif docker compose exec -T nodemanager python --version 2>&1 | grep -q Python; then echo "   python (2.7) ok - scripts são compatíveis"
+else echo "ERRO: sem Python no NodeManager"; exit 1; fi
 
 echo ">> [5/5] Rodando os jobs MapReduce..."
 docker compose exec -T namenode bash /job/run_hadoop.sh

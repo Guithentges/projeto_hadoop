@@ -2,6 +2,7 @@
 # Rode DENTRO do container namenode:  docker compose exec namenode bash /job/run_hadoop.sh
 set -e
 cd /job
+PY=python3; command -v python3 >/dev/null || PY=python
 STREAM=$(ls /opt/hadoop/share/hadoop/tools/lib/hadoop-streaming-*.jar)
 SPLIT=-Dmapreduce.input.fileinputformat.split.maxsize=2097152   # splits de 2MB => vários mappers
 
@@ -15,19 +16,19 @@ echo "=== JOB 1 SEM Combiner ==="
 hadoop jar $STREAM $SPLIT -Dmapreduce.job.reduces=2 \
   -files mapper1.py,reducer1.py \
   -input /logs/access.log -output /out/job1_sem \
-  -mapper "python3 mapper1.py" -reducer "python3 reducer1.py" 2>&1 | tee job1_sem.log
+  -mapper "$PY mapper1.py" -reducer "$PY reducer1.py" 2>&1 | tee job1_sem.log
 
 echo "=== JOB 1 COM Combiner ==="
 hadoop jar $STREAM $SPLIT -Dmapreduce.job.reduces=2 \
   -files mapper1.py,reducer1.py \
   -input /logs/access.log -output /out/job1_com \
-  -mapper "python3 mapper1.py" -combiner "python3 reducer1.py" -reducer "python3 reducer1.py" 2>&1 | tee job1_com.log
+  -mapper "$PY mapper1.py" -combiner "$PY reducer1.py" -reducer "$PY reducer1.py" 2>&1 | tee job1_com.log
 
 echo "=== JOB 2 (Top 10, encadeado na saída do Job 1) ==="
 hadoop jar $STREAM $SPLIT -Dmapreduce.job.reduces=1 \
   -files mapper2.py,top10.py \
   -input /out/job1_com -output /out/job2 \
-  -mapper "python3 mapper2.py" -combiner "python3 top10.py" -reducer "python3 top10.py"
+  -mapper "$PY mapper2.py" -combiner "$PY top10.py" -reducer "$PY top10.py"
 hdfs dfs -cat /out/job2/part-*
 
 echo; echo "=== Comparação dos Counters ==="

@@ -5,7 +5,8 @@ set -e
 set -o pipefail
 cd /job
 R=/job/resultados
-mkdir -p $R
+D=$R/detalhes
+mkdir -p $R $D
 
 # Imagem é CentOS 7 antigo: costuma ter só "python" (2.7). Os scripts servem nos dois.
 PY=python3; command -v python3 >/dev/null 2>&1 || PY=python
@@ -18,7 +19,7 @@ SPLIT=-Dmapreduce.input.fileinputformat.split.maxsize=4194304
 roda() {   # roda "nome" comando...  -> saída completa em resultados/<nome>.log
   local nome="$1"; shift
   echo "   $nome"
-  "$@" > $R/$nome.log 2>&1 || { echo "ERRO em $nome (últimas linhas):"; tail -25 $R/$nome.log; exit 1; }
+  "$@" > $D/$nome.log 2>&1 || { echo "ERRO em $nome (últimas linhas):"; tail -25 $D/$nome.log; exit 1; }
 }
 
 echo "   Enviando o log ao HDFS (blocos de 16MB só para a demo; o padrão real é 128MB)"
@@ -42,8 +43,8 @@ roda job2_top10 hadoop jar $STREAM $SPLIT -Dmapreduce.job.reduces=1 \
   -input /out/job1_com -output /out/job2 \
   -mapper "$PY mapper2.py" -combiner "$PY top10.py" -reducer "$PY top10.py"
 
-hdfs dfs -cat /out/job1_sem/part-* 2>/dev/null | sort > $R/job1_sem.out
-hdfs dfs -cat /out/job1_com/part-* 2>/dev/null | sort > $R/job1_com.out
-hdfs dfs -cat /out/job2/part-*     2>/dev/null       > $R/top10.txt
+hdfs dfs -cat /out/job1_sem/part-* 2>/dev/null | sort > $D/job1_sem.out
+hdfs dfs -cat /out/job1_com/part-* 2>/dev/null | sort > $D/job1_com.out
+hdfs dfs -cat /out/job2/part-*     2>/dev/null       > $D/top10.txt
 
 bash /job/relatorio.sh

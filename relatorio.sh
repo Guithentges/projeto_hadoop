@@ -3,8 +3,9 @@
 # Não depende do Hadoop: só dos arquivos em resultados/.
 R="${R:-$(dirname "$0")/resultados}"
 LOG_ORIG="${LOG_ORIG:-$(dirname "$0")/access.log}"
-SEM="$R/job1_sem_combiner.log"
-COM="$R/job1_com_combiner.log"
+D="$R/detalhes"
+SEM="$D/job1_sem_combiner.log"
+COM="$D/job1_com_combiner.log"
 OUT="$R/RESULTADOS.txt"
 
 c() { grep -m1 "$2" "$1" | sed 's/.*=//' | tr -d ' \r'; }   # valor de um counter
@@ -15,12 +16,12 @@ linha() { printf "%-48s %16s %16s\n" "$1" "$2" "$3"; }
 RIN_SEM=$(c $SEM "Reduce input records");  RIN_COM=$(c $COM "Reduce input records")
 SHUF_SEM=$(c $SEM "Reduce shuffle bytes"); SHUF_COM=$(c $COM "Reduce shuffle bytes")
 
-H1=$(md5sum < $R/job1_sem.out | cut -d' ' -f1)
-H2=$(md5sum < $R/job1_com.out | cut -d' ' -f1)
+H1=$(md5sum < $D/job1_sem.out | cut -d' ' -f1)
+H2=$(md5sum < $D/job1_com.out | cut -d' ' -f1)
 if [ "$H1" = "$H2" ]; then IGUAL="IDENTICA (o Combiner nao alterou o resultado)"; else IGUAL="DIFERENTE (investigar!)"; fi
 
 TOTAL_LOG=$(wc -l < "$LOG_ORIG" 2>/dev/null || echo "?")
-SOMA=$(awk -F'\t' '{split($2,a,","); s+=a[1]} END{print s+0}' $R/job1_com.out)
+SOMA=$(awk -F'\t' '{split($2,a,","); s+=a[1]} END{print s+0}' $D/job1_com.out)
 
 {
 echo "RESULTADOS DO EXPERIMENTO - MapReduce com Hadoop (Grupo 10)"
@@ -49,10 +50,11 @@ echo
 echo "JOB 2: Top 10 URLs mais acessadas"
 echo "---------------------------------"
 printf "%-4s %12s %16s  %s\n" "#" "Acessos" "Bytes" "URL"
-awk -F'\t' '{ printf "%-4d %12d %16d  %s\n", NR, $2, $3, $4 }' $R/top10.txt
+awk -F'\t' '{ printf "%-4d %12d %16d  %s\n", NR, $2, $3, $4 }' $D/top10.txt
 echo
 echo "HDFS (resumo do fsck)"
 echo "---------------------"
 grep -E "Total blocks|Average block replication|Under-replicated|Default replication|Corrupt blocks" $R/hdfs_fsck.txt | sed 's/^[ \t]*//'
 echo "(detalhe dos blocos e DataNodes de cada replica: resultados/hdfs_fsck.txt)"
+echo "(logs completos dos jobs e saidas intermediarias: resultados/detalhes/)"
 } > $OUT

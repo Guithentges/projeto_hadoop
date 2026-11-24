@@ -8,8 +8,8 @@ if [ "$1" = "down" ]; then docker compose down >/dev/null 2>&1; echo "Cluster de
 
 docker info >/dev/null 2>&1 || { echo "ERRO: Docker não está rodando"; exit 1; }
 
-mkdir -p resultados
-LOGCMD=resultados/comandos.log
+mkdir -p resultados/detalhes
+LOGCMD=resultados/detalhes/comandos.log
 
 quieto() {   # roda um comando sem poluir o terminal; só mostra a saída se falhar
   "$@" >> "$LOGCMD" 2>&1 || { echo "ERRO ao executar: $*"; tail -20 "$LOGCMD"; exit 1; }

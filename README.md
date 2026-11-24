@@ -10,7 +10,7 @@ Análise de logs de servidor web com **Hadoop Streaming (Python)** num cluster D
 ```
 
 Gera o log, sobe o cluster, roda os jobs e mostra a tabela de resultados.
-Tudo fica salvo em `resultados/` (principal: `resultados/RESULTADOS.md`).
+Tudo fica salvo em `resultados/` (principal: `resultados/RESULTADOS.txt`).
 Para desligar: `./run.sh down`.
 
 No GitHub Codespaces, abra a aba **PORTAS** e clique no globo ao lado de:
@@ -28,7 +28,7 @@ No GitHub Codespaces, abra a aba **PORTAS** e clique no globo ao lado de:
 | `top10.py` | Job 2, **Combiner e Reducer**: mantém só os 10 maiores |
 | `run.sh` | Orquestra tudo (log, cluster, espera, jobs) |
 | `run_hadoop.sh` | Roda dentro do NameNode: envia ao HDFS, executa os 3 jobs |
-| `relatorio.sh` | Lê os counters e escreve `resultados/RESULTADOS.md` |
+| `relatorio.sh` | Lê os counters e escreve `resultados/RESULTADOS.txt` |
 | `docker-compose.yml`, `config` | Cluster Hadoop |
 
 ## Fluxo de dados (chave-valor)

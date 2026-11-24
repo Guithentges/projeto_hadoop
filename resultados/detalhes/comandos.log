@@ -1,0 +1,8 @@
+ Container projeto_hadoop-namenode-1 Running 
+ Container projeto_hadoop-datanode-1 Running 
+ Container projeto_hadoop-datanode-2 Running 
+ Container projeto_hadoop-datanode-3 Running 
+ Container projeto_hadoop-resourcemanager-1 Running 
+ Container projeto_hadoop-nodemanager-1 Running 
+Safe mode is OFF
+/usr/bin/python

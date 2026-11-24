@@ -1,0 +1,55 @@
+Connecting to namenode via http://namenode:9870/fsck?ugi=hadoop&files=1&blocks=1&locations=1&path=%2Flogs%2Faccess.log
+FSCK started by hadoop (auth:SIMPLE) from /172.18.0.2 for path /logs/access.log at Tue Nov 24 19:30:37 UTC 2026
+
+/logs/access.log 184408097 bytes, replicated: replication=3, 11 block(s):  OK
+0. BP-800515577-172.18.0.2-1795542423585:blk_1073741972_1148 len=16777216 Live_repl=3  [DatanodeInfoWithStorage[172.18.0.6:9866,DS-bd966005-0a1f-4c04-941e-78f9bc0acce9,DISK], DatanodeInfoWithStorage[172.18.0.5:9866,DS-78be3c69-6186-4685-ac2e-cf9d29e32712,DISK], DatanodeInfoWithStorage[172.18.0.7:9866,DS-2f70fbaa-f0b4-444d-8b06-cbe135399df6,DISK]]
+1. BP-800515577-172.18.0.2-1795542423585:blk_1073741973_1149 len=16777216 Live_repl=3  [DatanodeInfoWithStorage[172.18.0.5:9866,DS-78be3c69-6186-4685-ac2e-cf9d29e32712,DISK], DatanodeInfoWithStorage[172.18.0.6:9866,DS-bd966005-0a1f-4c04-941e-78f9bc0acce9,DISK], DatanodeInfoWithStorage[172.18.0.7:9866,DS-2f70fbaa-f0b4-444d-8b06-cbe135399df6,DISK]]
+2. BP-800515577-172.18.0.2-1795542423585:blk_1073741974_1150 len=16777216 Live_repl=3  [DatanodeInfoWithStorage[172.18.0.6:9866,DS-bd966005-0a1f-4c04-941e-78f9bc0acce9,DISK], DatanodeInfoWithStorage[172.18.0.7:9866,DS-2f70fbaa-f0b4-444d-8b06-cbe135399df6,DISK], DatanodeInfoWithStorage[172.18.0.5:9866,DS-78be3c69-6186-4685-ac2e-cf9d29e32712,DISK]]
+3. BP-800515577-172.18.0.2-1795542423585:blk_1073741975_1151 len=16777216 Live_repl=3  [DatanodeInfoWithStorage[172.18.0.5:9866,DS-78be3c69-6186-4685-ac2e-cf9d29e32712,DISK], DatanodeInfoWithStorage[172.18.0.6:9866,DS-bd966005-0a1f-4c04-941e-78f9bc0acce9,DISK], DatanodeInfoWithStorage[172.18.0.7:9866,DS-2f70fbaa-f0b4-444d-8b06-cbe135399df6,DISK]]
+4. BP-800515577-172.18.0.2-1795542423585:blk_1073741976_1152 len=16777216 Live_repl=3  [DatanodeInfoWithStorage[172.18.0.6:9866,DS-bd966005-0a1f-4c04-941e-78f9bc0acce9,DISK], DatanodeInfoWithStorage[172.18.0.5:9866,DS-78be3c69-6186-4685-ac2e-cf9d29e32712,DISK], DatanodeInfoWithStorage[172.18.0.7:9866,DS-2f70fbaa-f0b4-444d-8b06-cbe135399df6,DISK]]
+5. BP-800515577-172.18.0.2-1795542423585:blk_1073741977_1153 len=16777216 Live_repl=3  [DatanodeInfoWithStorage[172.18.0.7:9866,DS-2f70fbaa-f0b4-444d-8b06-cbe135399df6,DISK], DatanodeInfoWithStorage[172.18.0.5:9866,DS-78be3c69-6186-4685-ac2e-cf9d29e32712,DISK], DatanodeInfoWithStorage[172.18.0.6:9866,DS-bd966005-0a1f-4c04-941e-78f9bc0acce9,DISK]]
+6. BP-800515577-172.18.0.2-1795542423585:blk_1073741978_1154 len=16777216 Live_repl=3  [DatanodeInfoWithStorage[172.18.0.6:9866,DS-bd966005-0a1f-4c04-941e-78f9bc0acce9,DISK], DatanodeInfoWithStorage[172.18.0.7:9866,DS-2f70fbaa-f0b4-444d-8b06-cbe135399df6,DISK], DatanodeInfoWithStorage[172.18.0.5:9866,DS-78be3c69-6186-4685-ac2e-cf9d29e32712,DISK]]
+7. BP-800515577-172.18.0.2-1795542423585:blk_1073741979_1155 len=16777216 Live_repl=3  [DatanodeInfoWithStorage[172.18.0.7:9866,DS-2f70fbaa-f0b4-444d-8b06-cbe135399df6,DISK], DatanodeInfoWithStorage[172.18.0.6:9866,DS-bd966005-0a1f-4c04-941e-78f9bc0acce9,DISK], DatanodeInfoWithStorage[172.18.0.5:9866,DS-78be3c69-6186-4685-ac2e-cf9d29e32712,DISK]]
+8. BP-800515577-172.18.0.2-1795542423585:blk_1073741980_1156 len=16777216 Live_repl=3  [DatanodeInfoWithStorage[172.18.0.7:9866,DS-2f70fbaa-f0b4-444d-8b06-cbe135399df6,DISK], DatanodeInfoWithStorage[172.18.0.5:9866,DS-78be3c69-6186-4685-ac2e-cf9d29e32712,DISK], DatanodeInfoWithStorage[172.18.0.6:9866,DS-bd966005-0a1f-4c04-941e-78f9bc0acce9,DISK]]
+9. BP-800515577-172.18.0.2-1795542423585:blk_1073741981_1157 len=16777216 Live_repl=3  [DatanodeInfoWithStorage[172.18.0.6:9866,DS-bd966005-0a1f-4c04-941e-78f9bc0acce9,DISK], DatanodeInfoWithStorage[172.18.0.7:9866,DS-2f70fbaa-f0b4-444d-8b06-cbe135399df6,DISK], DatanodeInfoWithStorage[172.18.0.5:9866,DS-78be3c69-6186-4685-ac2e-cf9d29e32712,DISK]]
+10. BP-800515577-172.18.0.2-1795542423585:blk_1073741982_1158 len=16635937 Live_repl=3  [DatanodeInfoWithStorage[172.18.0.6:9866,DS-bd966005-0a1f-4c04-941e-78f9bc0acce9,DISK], DatanodeInfoWithStorage[172.18.0.5:9866,DS-78be3c69-6186-4685-ac2e-cf9d29e32712,DISK], DatanodeInfoWithStorage[172.18.0.7:9866,DS-2f70fbaa-f0b4-444d-8b06-cbe135399df6,DISK]]
+
+
+Status: HEALTHY
+ Number of data-nodes:	3
+ Number of racks:		1
+ Total dirs:			0
+ Total symlinks:		0
+
+Replicated Blocks:
+ Total size:	184408097 B
+ Total files:	1
+ Total blocks (validated):	11 (avg. block size 16764372 B)
+ Minimally replicated blocks:	11 (100.0 %)
+ Over-replicated blocks:	0 (0.0 %)
+ Under-replicated blocks:	0 (0.0 %)
+ Mis-replicated blocks:		0 (0.0 %)
+ Default replication factor:	3
+ Average block replication:	3.0
+ Missing blocks:		0
+ Corrupt blocks:		0
+ Missing replicas:		0 (0.0 %)
+ Blocks queued for replication:	0
+
+Erasure Coded Block Groups:
+ Total size:	0 B
+ Total files:	0
+ Total block groups (validated):	0
+ Minimally erasure-coded block groups:	0
+ Over-erasure-coded block groups:	0
+ Under-erasure-coded block groups:	0
+ Unsatisfactory placement block groups:	0
+ Average block group size:	0.0
+ Missing block groups:		0
+ Corrupt block groups:		0
+ Missing internal blocks:	0
+ Blocks queued for replication:	0
+FSCK ended at Tue Nov 24 19:30:37 UTC 2026 in 2 milliseconds
+
+
+The filesystem under path '/logs/access.log' is HEALTHY

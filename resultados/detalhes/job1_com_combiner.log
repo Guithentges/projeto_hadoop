@@ -1,0 +1,94 @@
+packageJobJar: [/tmp/hadoop-unjar2531352233709482833/] [] /tmp/streamjob1132278318596807258.jar tmpDir=null
+2026-11-24 19:32:14 INFO  DefaultNoHARMFailoverProxyProvider:64 - Connecting to ResourceManager at resourcemanager/172.18.0.3:8032
+2026-11-24 19:32:15 INFO  DefaultNoHARMFailoverProxyProvider:64 - Connecting to ResourceManager at resourcemanager/172.18.0.3:8032
+2026-11-24 19:32:15 INFO  JobResourceUploader:907 - Disabling Erasure Coding for path: /tmp/hadoop-yarn/staging/hadoop/.staging/job_1795542430202_0011
+2026-11-24 19:32:15 INFO  FileInputFormat:266 - Total input files to process : 1
+2026-11-24 19:32:15 INFO  JobSubmitter:202 - number of splits:11
+2026-11-24 19:32:16 INFO  JobSubmitter:298 - Submitting tokens for job: job_1795542430202_0011
+2026-11-24 19:32:16 INFO  JobSubmitter:299 - Executing with tokens: []
+2026-11-24 19:32:16 INFO  Configuration:2854 - resource-types.xml not found
+2026-11-24 19:32:16 INFO  ResourceUtils:476 - Unable to find 'resource-types.xml'.
+2026-11-24 19:32:16 INFO  YarnClientImpl:338 - Submitted application application_1795542430202_0011
+2026-11-24 19:32:16 INFO  Job:1682 - The url to track the job: http://resourcemanager:8088/proxy/application_1795542430202_0011/
+2026-11-24 19:32:16 INFO  Job:1727 - Running job: job_1795542430202_0011
+2026-11-24 19:32:25 INFO  Job:1748 - Job job_1795542430202_0011 running in uber mode : false
+2026-11-24 19:32:25 INFO  Job:1755 -  map 0% reduce 0%
+2026-11-24 19:32:38 INFO  Job:1755 -  map 18% reduce 0%
+2026-11-24 19:32:49 INFO  Job:1755 -  map 27% reduce 0%
+2026-11-24 19:32:50 INFO  Job:1755 -  map 36% reduce 0%
+2026-11-24 19:32:59 INFO  Job:1755 -  map 45% reduce 0%
+2026-11-24 19:33:00 INFO  Job:1755 -  map 55% reduce 0%
+2026-11-24 19:33:08 INFO  Job:1755 -  map 64% reduce 0%
+2026-11-24 19:33:14 INFO  Job:1755 -  map 73% reduce 0%
+2026-11-24 19:33:18 INFO  Job:1755 -  map 73% reduce 12%
+2026-11-24 19:33:21 INFO  Job:1755 -  map 82% reduce 12%
+2026-11-24 19:33:24 INFO  Job:1755 -  map 82% reduce 14%
+2026-11-24 19:33:28 INFO  Job:1755 -  map 91% reduce 14%
+2026-11-24 19:33:30 INFO  Job:1755 -  map 91% reduce 15%
+2026-11-24 19:33:35 INFO  Job:1755 -  map 100% reduce 15%
+2026-11-24 19:33:36 INFO  Job:1755 -  map 100% reduce 50%
+2026-11-24 19:33:39 INFO  Job:1755 -  map 100% reduce 100%
+2026-11-24 19:33:40 INFO  Job:1766 - Job job_1795542430202_0011 completed successfully
+2026-11-24 19:33:40 INFO  Job:1773 - Counters: 55
+	File System Counters
+		FILE: Number of bytes read=123323
+		FILE: Number of bytes written=3893811
+		FILE: Number of read operations=0
+		FILE: Number of large read operations=0
+		FILE: Number of write operations=0
+		HDFS: Number of bytes read=184449970
+		HDFS: Number of bytes written=11238
+		HDFS: Number of read operations=43
+		HDFS: Number of large read operations=0
+		HDFS: Number of write operations=4
+		HDFS: Number of bytes read erasure-coded=0
+	Job Counters 
+		Killed map tasks=1
+		Launched map tasks=11
+		Launched reduce tasks=2
+		Rack-local map tasks=11
+		Total time spent by all maps in occupied slots (ms)=80774
+		Total time spent by all reduces in occupied slots (ms)=37506
+		Total time spent by all map tasks (ms)=80774
+		Total time spent by all reduce tasks (ms)=37506
+		Total vcore-milliseconds taken by all map tasks=80774
+		Total vcore-milliseconds taken by all reduce tasks=37506
+		Total megabyte-milliseconds taken by all map tasks=82712576
+		Total megabyte-milliseconds taken by all reduce tasks=38406144
+	Map-Reduce Framework
+		Map input records=2000000
+		Map output records=2000000
+		Map output bytes=58512645
+		Map output materialized bytes=123443
+		Input split bytes=913
+		Combine input records=2000000
+		Combine output records=3366
+		Reduce input groups=306
+		Reduce shuffle bytes=123443
+		Reduce input records=3366
+		Reduce output records=306
+		Spilled Records=6732
+		Shuffled Maps =22
+		Failed Shuffles=0
+		Merged Map outputs=22
+		GC time elapsed (ms)=1826
+		CPU time spent (ms)=22410
+		Physical memory (bytes) snapshot=4285386752
+		Virtual memory (bytes) snapshot=34169122816
+		Total committed heap usage (bytes)=3630694400
+		Peak Map Physical memory (bytes)=354172928
+		Peak Map Virtual memory (bytes)=2629664768
+		Peak Reduce Physical memory (bytes)=239357952
+		Peak Reduce Virtual memory (bytes)=2631151616
+	Shuffle Errors
+		BAD_ID=0
+		CONNECTION=0
+		IO_ERROR=0
+		WRONG_LENGTH=0
+		WRONG_MAP=0
+		WRONG_REDUCE=0
+	File Input Format Counters 
+		Bytes Read=184449057
+	File Output Format Counters 
+		Bytes Written=11238
+2026-11-24 19:33:40 INFO  StreamJob:1029 - Output directory: /out/job1_com

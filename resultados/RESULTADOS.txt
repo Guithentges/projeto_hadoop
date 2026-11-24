@@ -1,0 +1,46 @@
+RESULTADOS DO EXPERIMENTO - MapReduce com Hadoop (Grupo 10)
+============================================================
+
+JOB 1: acessos e bytes por URL
+------------------------------
+Counter                                              Sem Combiner     Com Combiner
+Linhas lidas (Map input records)                          2000000          2000000
+Saida dos mappers (Map output records)                    2000000          2000000
+Combine input records                                           0          2000000
+Combine output records                                          0             3366
+Reduce input records (entregues pelo Shuffle)             2000000             3366
+Reduce shuffle bytes                                     62512777           123443
+URLs distintas (Reduce input groups)                          306              306
+Map tasks lancadas                                             11               11
+
+Reducao de registros no Shuffle: 99.83%
+Reducao de bytes no Shuffle:     99.80%
+
+VERIFICACOES DE CORRECAO
+------------------------
+Saida do Job 1 sem x com Combiner: IDENTICA (o Combiner nao alterou o resultado)
+Soma dos acessos nas URLs: 2000000  |  Linhas do log original: 2000000
+
+JOB 2: Top 10 URLs mais acessadas
+---------------------------------
+#         Acessos            Bytes  URL
+1          318011       7209040012  /produtos/item0.html
+2          158114       3573987769  /produtos/item1.html
+3          105486       2387470218  /produtos/item2.html
+4           79053       1784555530  /produtos/item3.html
+5           63311       1430982551  /produtos/item4.html
+6           52889       1196827793  /produtos/item5.html
+7           45702       1030956560  /produtos/item6.html
+8           39347        894924593  /produtos/item7.html
+9           35251        797120027  /produtos/item8.html
+10          31868        723042033  /produtos/item9.html
+
+HDFS (resumo do fsck)
+---------------------
+Total blocks (validated):	11 (avg. block size 16764372 B)
+Under-replicated blocks:	0 (0.0 %)
+Default replication factor:	3
+Average block replication:	3.0
+Corrupt blocks:		0
+(detalhe dos blocos e DataNodes de cada replica: resultados/hdfs_fsck.txt)
+(logs completos dos jobs e saidas intermediarias: resultados/detalhes/)

@@ -3,15 +3,15 @@
 Uso: python3 gerar_logs.py [num_linhas] > access.log
 
 As URLs seguem uma distribuição "cauda longa" (poucas URLs muito acessadas,
-como em sites reais). Isso é o que faz o Combiner brilhar.
-Para a apresentação, o ideal é usar um log real, como o NASA-HTTP
-(Kennedy Space Center, 1995): o mesmo código funciona sem alteração.
+como em sites reais). É isso que faz o Combiner render bastante.
+Para usar um log real (ex.: NASA-HTTP, 1995), basta colocar o arquivo
+em access.log: o código funciona sem alteração.
 """
 import random
 import sys
 from datetime import datetime, timedelta
 
-n = int(sys.argv[1]) if len(sys.argv) > 1 else 200_000
+n = int(sys.argv[1]) if len(sys.argv) > 1 else 600_000
 random.seed(42)
 
 urls = [f"/produtos/item{i}.html" for i in range(300)] + \
